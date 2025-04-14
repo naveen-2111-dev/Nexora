@@ -1,0 +1,25 @@
+# Node.js dependencies
+/node_modules/
+
+# Hardhat artifacts
+/artifacts/
+/cache/
+
+# Environment files
+.env
+
+# VSCode settings
+.vscode/
+
+# Build output
+/dist/
+
+# Logs
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Solidity coverage
+coverage/

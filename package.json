@@ -1,0 +1,7 @@
+{
+  "name": "Nexora",
+  "packageManager": "yarn@4.3.1",
+  "devDependencies": {
+    "hardhat": "^2.23.0"
+  }
+}
