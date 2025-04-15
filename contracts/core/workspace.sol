@@ -40,9 +40,11 @@ contract WorkSpaceContract {
         address[] channels;
     }
 
-    function GetWorkspace(
-        uint256 workspaceId
-    ) public view returns (WorkspaceData memory) {
+    function GetWorkspace(uint256 workspaceId)
+        public
+        view
+        returns (WorkspaceData memory)
+    {
         Workspace storage ws = workspaceStorage[workspaceId];
         return
             WorkspaceData(
@@ -80,10 +82,9 @@ contract WorkSpaceContract {
         return WorkspaceCount;
     }
 
-    function AddWorkspaceMember(
-        uint256 _spaceId,
-        string memory newMate
-    ) external {
+    function AddWorkspaceMember(uint256 _spaceId, string memory newMate)
+        external
+    {
         Workspace storage ws = workspaceStorage[_spaceId];
 
         require(!ws.isColleague[newMate], "Already a mate");
@@ -94,9 +95,11 @@ contract WorkSpaceContract {
         emit MemberAdded(_spaceId, "User added successfully", newMate);
     }
 
-    function GetColleagues(
-        uint256 _spaceId
-    ) public view returns (string[] memory) {
+    function GetColleagues(uint256 _spaceId)
+        public
+        view
+        returns (string[] memory)
+    {
         return workspaceStorage[_spaceId].colleagues;
     }
 
@@ -124,16 +127,19 @@ contract WorkSpaceContract {
         return TaskCount;
     }
 
-    function GetTask(
-        uint256 _workspaceId,
-        uint256 _taskId
-    ) public view returns (Task memory) {
+    function GetTask(uint256 _workspaceId, uint256 _taskId)
+        public
+        view
+        returns (Task memory)
+    {
         return workspaceStorage[_workspaceId].tasks[_taskId];
     }
 
-    function GetChannels(
-        uint256 _workspaceId
-    ) public view returns (address[] memory) {
+    function GetChannels(uint256 _workspaceId)
+        public
+        view
+        returns (address[] memory)
+    {
         return workspaceStorage[_workspaceId].channels;
     }
 
