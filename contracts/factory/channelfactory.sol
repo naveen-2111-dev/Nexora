@@ -4,7 +4,7 @@ pragma solidity ^0.8.28;
 import "../core/channel.sol";
 import "../interface/interfaces.sol";
 
-contract NEXORAChannelfactory {
+contract ChannelManager {
     event ChannelCreated(address indexed channelAddress, uint256 workspaceId);
     address public workspace;
 
@@ -20,6 +20,11 @@ contract NEXORAChannelfactory {
         uint256 _wrkSpaceId,
         string[] memory _members
     ) public {
+        require(
+            address(channels[_channelId]) == address(0),
+            "Channel with this ID already exists"
+        );
+
         ChannelContract newChannel = new ChannelContract(
             msg.sender,
             _channelId,
@@ -30,11 +35,18 @@ contract NEXORAChannelfactory {
 
         channels[_channelId] = newChannel;
 
-        IWorkSpaceContract(workspace).RegisterChannel(_wrkSpaceId, address(newChannel));
+        IWorkSpaceContract(workspace).RegisterChannel(
+            _wrkSpaceId,
+            address(newChannel)
+        );
         emit ChannelCreated(address(newChannel), _wrkSpaceId);
+
+        //return space id bro
     }
 
-    function GetChannel(uint256 channelId)
+    function GetChannel(
+        uint256 channelId
+    )
         public
         view
         returns (
@@ -45,6 +57,10 @@ contract NEXORAChannelfactory {
             string[] memory channelMembers
         )
     {
+        require(
+            address(channels[channelId]) != address(0),
+            "Channel does not exist"
+        );
         ChannelContract ch = channels[channelId];
 
         name = ch.channelName();
