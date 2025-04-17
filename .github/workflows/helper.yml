@@ -1,0 +1,27 @@
+name: Solidity CI (Node 20)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: ⚙️ Setup Node.js (LTS 20.x)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: 📦 Install dependencies
+        run: yarn install
+
+      - name: 🔨 Compile Contracts
+        run: npx hardhat compile
+
