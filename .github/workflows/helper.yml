@@ -1,4 +1,4 @@
-name: Solidity CI (Node 20)
+name: Solidity CI (Yarn v4 - Node 20)
 
 on:
   push:
@@ -11,17 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout repository
+      - name: 📥 Checkout repo
         uses: actions/checkout@v3
 
-      - name: ⚙️ Setup Node.js (LTS 20.x)
+      - name: ⚙️ Setup Node.js 20
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      - name: 📦 Install dependencies
+      - name: 🔧 Enable Corepack and set Yarn v4
+        run: |
+          corepack enable
+          corepack prepare yarn@4.3.1 --activate
+          echo "Using Yarn version: $(yarn --version)"
+
+      - name: 📦 Install dependencies using Yarn 4
         run: yarn install
 
       - name: 🔨 Compile Contracts
         run: npx hardhat compile
-
