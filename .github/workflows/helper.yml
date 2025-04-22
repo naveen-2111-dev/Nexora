@@ -1,4 +1,4 @@
-name: Solidity CI (Yarn v4 fix)
+name: Solidity CI
 
 on:
   push:

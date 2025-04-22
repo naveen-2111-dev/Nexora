@@ -27,6 +27,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["@openzeppelin/contracts", "npm:5.3.0"],\
           ["hardhat", "virtual:39a9a3acf5548a10e3338d8212d6c7782918018a4f2268a296fc78ef1e598e756d9b5f61ec9286a894087e69f15453d037de609396b0a6d94281f0bcf1ecef46#npm:2.23.0"]\
         ],\
         "linkType": "SOFT"\
@@ -559,6 +560,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@openzeppelin/contracts", [\
+      ["npm:5.3.0", {\
+        "packageLocation": "../../../snap/code/191/.local/share/yarn/berry/cache/@openzeppelin-contracts-npm-5.3.0-731ea0cb78-10c0.zip/node_modules/@openzeppelin/contracts/",\
+        "packageDependencies": [\
+          ["@openzeppelin/contracts", "npm:5.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@pkgjs/parseargs", [\
       ["npm:0.11.0", {\
         "packageLocation": "../../../snap/code/191/.local/share/yarn/berry/cache/@pkgjs-parseargs-npm-0.11.0-cd2a3fe948-10c0.zip/node_modules/@pkgjs/parseargs/",\
@@ -750,6 +760,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["Nexora", "workspace:."],\
+          ["@openzeppelin/contracts", "npm:5.3.0"],\
           ["hardhat", "virtual:39a9a3acf5548a10e3338d8212d6c7782918018a4f2268a296fc78ef1e598e756d9b5f61ec9286a894087e69f15453d037de609396b0a6d94281f0bcf1ecef46#npm:2.23.0"]\
         ],\
         "linkType": "SOFT"\
